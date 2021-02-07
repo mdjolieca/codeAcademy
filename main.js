@@ -23,8 +23,7 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
 
 
-// Add your functions below:
-
+//validate a card number
 const validateCred = (numArray) => {
     
     let tempArray = [];
@@ -46,6 +45,13 @@ const validateCred = (numArray) => {
    return tempArray.reduce((a, b) => a + b, 0) % 10 == 0;
 }
 
+//find invalid card numbers in batch
+const findInvalidCards = (arrayOfCards) => {
+ return arrayOfCards.filter(validateCred);
+}
+
+
+//id invalid card company
 const idInvalidCardCompanies = (numArrays) =>{
      let companies = [];
      for(let numArray of numArrays) {
@@ -66,14 +72,13 @@ const idInvalidCardCompanies = (numArrays) =>{
            companies.push( 'Company not found'); 
          }
      }
-    //convert to set to remove duplicates
     return new Set(companies);
 }
 
 //print invalid cards
-console.log(batch.filter(validateCred));
+console.log(findInvalidCards(batch));
 //print companies with invalid cards
-console.log(idInvalidCardCompanies(batch.filter(validateCred)));
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 
 
