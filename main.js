@@ -66,6 +66,7 @@ const idInvalidCardCompanies = (numArrays) =>{
            companies.push( 'Company not found'); 
          }
      }
+    //convert to set to remove duplicates
     return new Set(companies);
 }
 
