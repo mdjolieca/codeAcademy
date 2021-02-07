@@ -27,6 +27,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 const validateCred = (numArray) => {
     
     let tempArray = [];
+    //push check digit (last digit)
     tempArray.push(numArray[numArray.length-1]);
     let j = 2
     for(let i = numArray.length-2; i>=0 ; i--){
@@ -37,9 +38,9 @@ const validateCred = (numArray) => {
            }
             tempArray.unshift(newNumber);
         }
-         else {
+        else {
          tempArray.unshift(numArray[i]);
-         }
+        }
        j++;    
     }
    return tempArray.reduce((a, b) => a + b, 0) % 10 == 0;
@@ -72,6 +73,7 @@ const idInvalidCardCompanies = (numArrays) =>{
            companies.push( 'Company not found'); 
          }
      }
+    //convert to set to remove any duplicates
     return new Set(companies);
 }
 
