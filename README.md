@@ -4,7 +4,6 @@ A Codecademy javascript challenge, based on Luhn algorithm.
 ## Table of contents
 * [Project goals](#project-goals)
 * [Technology](#technology)
-* [Launch](#launch)
 * [Source](#source)
 
 ## Project goals
